@@ -5,7 +5,6 @@
   <title>Connort117</title>
   <style>
 header {
-        background-color: #cf6666;
         padding: 1em;
         display: flex;
         justify-content: right;
@@ -21,8 +20,7 @@ footer {
         justify-content: right;
 }
 icon {
-        position: relative;
-        left: 0;
+        margin-left: 1em;
     }
 nav ul {
   left: 0.5em;
