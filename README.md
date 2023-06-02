@@ -20,6 +20,9 @@ footer {
         display: flex;
         justify-content: right;
 }
+icon {
+        left: 0;
+    }
 nav ul {
   left: 0.5em;
     }
@@ -49,7 +52,9 @@ table {
   </style>
 </head>
 <header>
-    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="30">
+  <icon> 
+  <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="50">
+  </icon>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
