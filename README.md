@@ -20,7 +20,7 @@ footer {
         justify-content: right;
 }
 icon {
-        margin-left: 1em;
+        justify-content: left;
     }
 nav ul {
   left: 0.5em;
