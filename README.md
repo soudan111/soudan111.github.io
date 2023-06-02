@@ -30,7 +30,7 @@ t li {
   display: inline;
   margin-left: 0.5em;
     }
-t {
+t a {
   color: rgb(0, 0, 0);
   text-decoration: none;
   background-color: #a5a5a5;
