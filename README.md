@@ -15,7 +15,6 @@ footer {
         justify-content: right;
 }
 nav ul {
-  position: relative;
   top: 0;
   left: 10em;
     }
