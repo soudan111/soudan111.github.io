@@ -4,18 +4,17 @@
   <meta name="viewport" content="width=device-width">
   <title>Connort117</title>
   <style>
-    body {
+body {
         background-color: rgb(255, 255, 255);
         justify-content: center;
     }
-    footer {
+footer {
         background-color: #a5a5a5;
         padding: 1em;
         display: flex;
         justify-content: right;
 }
 nav ul {
-  position: absolute;
   top: 0;
   right: 1em;
 }
