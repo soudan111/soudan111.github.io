@@ -1,6 +1,6 @@
 <html>
 <head>
-  < <!DOCTYPE html> meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Connort117</title>
   <style>
