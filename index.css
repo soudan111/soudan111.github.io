@@ -1,11 +1,59 @@
+header {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+}
 body {
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+}
+footer {
+    background-color: #a5a5a5;
+    padding: 1em;
+    display: flex;
+    justify-content: right;
+}
+icon {
+    justify-content: left;
+}
+nav {
+    margin-left: auto;
+}
+nav ul {
+left: 0.5em;
+}
+nav li {
+display: inline;
+margin-left: 0.5em;
+}
+nav a {
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+t ul {
+left: 1em;
+}
+t li {
+display: inline;
+margin-left: 0.5em;
+}
+t a {
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+table {
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+
+body1 {
     text-align: center;
     margin: 0px;
     font-family: "Comic Sans MS";
 }
 
 .about {
-    background-color: yellow;
+    background-color: rgb(214, 44, 44);
     padding: 0px;
 }
 
