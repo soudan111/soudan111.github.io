@@ -7,7 +7,7 @@
 header {
         padding: 1em;
         display: flex;
-        justify-content: right;
+        justify-content: space-between;
     }
 body {
         background-color: rgb(255, 255, 255);
@@ -21,6 +21,9 @@ footer {
 }
 icon {
         justify-content: left;
+    }
+nav {
+        margin-left: auto;
     }
 nav ul {
   left: 0.5em;
