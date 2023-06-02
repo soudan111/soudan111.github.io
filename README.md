@@ -13,25 +13,25 @@
         padding: 1em;
         display: flex;
         justify-content: right;
-}
+    }
 nav ul {
   position: absolute;
   top: 0;
   right: 1em;
-}
-
+    }
 nav li {
   display: inline;
   margin-left: 0.5em;
-}
-
+    }
 nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-}
-  </style>
-
-
+    }
+table {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    }
+</style>
 </head>
 <header>
     <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="100">
@@ -42,15 +42,12 @@ nav a {
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-  </header>
+ </header>
 <body>
   <h1> Connor's Corner </h1>
   <p>
         I am in the process of building this website 
   </p> 
-
-
-
 </body>
 <footer> 
  <!-- Socials -->
