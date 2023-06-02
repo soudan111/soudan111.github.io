@@ -10,7 +10,6 @@
     }
     footer {
         background-color: #a5a5a5;
-        padding: 1em;
         display: flex;
         justify-content: right;
 }
