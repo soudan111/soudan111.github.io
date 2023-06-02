@@ -50,15 +50,12 @@ text-decoration: none;
 body1 {
     text-align: center;
     margin: 0px;
-    font-family: "Comic Sans MS";
 }
 
 .about {
-    background-color: rgb(214, 44, 44);
     padding: 0px;
 }
 
 .projects {
-    background-color: yellow;
     padding: 10px;
 }
