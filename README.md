@@ -21,6 +21,7 @@ footer {
         justify-content: right;
 }
 icon {
+        position: relative;
         left: 0;
     }
 nav ul {
