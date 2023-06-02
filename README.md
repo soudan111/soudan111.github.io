@@ -27,6 +27,19 @@ nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
     }
+    t ul {
+  position: absolute;
+  bottom: 0;
+  left: 1em;
+    }
+t li {
+  display: inline;
+  margin-left: 0.5em;
+    }
+t a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+    }
 table {
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -51,14 +64,12 @@ table {
 </body>
 <footer> 
  <!-- Socials -->
- <table>
-    <thead> 
-        <tr>
-            <th> <a target="_blank" href="https://www.linkedin.com/in/connor-tumelty-4296811a3/">Linkedin</a> </th>
-            <th> <a target="_blank" href="https://twitter.com/connor_tumelty">Twitter</a> </th>
-            <th> <a target="_blank" href="https://www.instagram.com/connort117/">Instagram</a> </th>
-        </tr>
-    </thead>
-  </table>
+ <t>
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/connor-tumelty-4296811a3/">Linkedin</a></li>
+        <li><a target="_blank" href="https://twitter.com/connor_tumelty">Twitter</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/connort117/">Instagram</a></li>
+      </ul>
+    </t>
 </footer>
 </html>
