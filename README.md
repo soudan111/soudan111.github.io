@@ -5,10 +5,10 @@
   <title>Connort117</title>
   <style>
 header {
-        background-color: #a5a5a5;
         padding: 1em;
         display: flex;
         justify-content: right;
+    }
 body {
         background-color: rgb(255, 255, 255);
         justify-content: center;
