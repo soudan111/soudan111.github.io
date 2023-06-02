@@ -16,8 +16,8 @@ footer {
 }
 nav ul {
   position: relative;
-  top: 0.5em;
-  right: 1em;
+  top: 0;
+  right: 10em;
     }
 nav li {
   display: inline;
