@@ -10,12 +10,12 @@ body {
     }
 nav ul {
   position: absolute;
-  top: 0;
+  top: 0.5em;
   right: 1em;
     }
 nav li {
   display: inline;
-  margin-left: 0.5em;
+  margin-left: 1em;
     }
 nav a {
   color: rgb(0, 0, 0);
@@ -23,7 +23,7 @@ nav a {
     }
 t ul {
   position: absolute;
-  bottom: 0;
+  bottom: right;
   left: 1em;
     }
 t li {
@@ -33,16 +33,21 @@ t li {
 t a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  background-color: #a5a5a5;
     }
 table {
     color: rgb(0, 0, 0);
     text-decoration: none;
     }
+footer {
+        background-color: #a5a5a5;
+        padding: 1em;
+        display: flex;
+        justify-content: right;
+    }
 </style>
 </head>
 <header>
-    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="100">
+    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="50">
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
