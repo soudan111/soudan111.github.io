@@ -23,7 +23,7 @@ nav a {
     }
 t ul {
   position: absolute;
-  bottom: right;
+  bottom: 0;
   left: 1em;
     }
 t li {
@@ -40,6 +40,7 @@ table {
     }
 footer {
         position: absolute;
+        bottom: 0;
         background-color: #a5a5a5;
         padding: 1em;
         display: flex;
