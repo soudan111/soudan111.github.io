@@ -36,10 +36,7 @@ t li {
 t a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-    background-color: #a5a5a5;
-        padding: 1em;
-        display: flex;
-        justify-content: right;
+  background-color: #a5a5a5;
     }
 table {
     color: rgb(0, 0, 0);
