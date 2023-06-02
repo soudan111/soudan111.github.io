@@ -2,10 +2,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel=“stylesheet” type=“text/css” href=“styles.css”>
+  <title>Connort117</title>
+  <style>
+    body {
+        background-color: rgb(255, 255, 255);
+        justify-content: center;
+    }
+    footer {
+        background-color: #a5a5a5;
+        padding: 1em;
+        display: flex;
+        justify-content: right;
+}
+nav ul {
+  position: absolute;
+  top: 0;
+  right: 1em;
+}
+
+nav li {
+  display: inline;
+  margin-left: 0.5em;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+  </style>
+
+
 </head>
 <header>
-    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="75">
+    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="100">
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
