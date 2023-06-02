@@ -15,17 +15,18 @@ footer {
         justify-content: right;
 }
 nav ul {
-  top: 0;
+  position: sticky;
+  top: 0.5em;
   right: 1em;
-}
+    }
 nav li {
   display: inline;
-  margin-left: 0.5em;
-}
+  margin-left: 1em;
+    }
 nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-}
+    }
 t ul {
   left: 1em;
     }
