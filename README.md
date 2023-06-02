@@ -16,7 +16,7 @@ footer {
 }
 nav ul {
   top: 0;
-  left: 10em;
+  right: 1em;
     }
 nav li {
   display: inline;
