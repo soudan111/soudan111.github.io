@@ -5,6 +5,7 @@
   <title>Connort117</title>
   <style>
 header {
+        background-color: #cf6666;
         padding: 1em;
         display: flex;
         justify-content: right;
@@ -48,7 +49,7 @@ table {
   </style>
 </head>
 <header>
-    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="100">
+    <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="30">
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
