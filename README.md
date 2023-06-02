@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  < <!DOCTYPE html> meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Connort117</title>
   <style>
@@ -20,19 +19,30 @@ nav ul {
   top: 0;
   right: 1em;
 }
-
 nav li {
   display: inline;
   margin-left: 0.5em;
 }
-
 nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
+t ul {
+  left: 1em;
+    }
+t li {
+  display: inline;
+  margin-left: 0.5em;
+    }
+t a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+    }
+table {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    }
   </style>
-
-
 </head>
 <header>
     <img src="https://cdn.discordapp.com/attachments/584828422312689664/1114007817360261252/IMG_3352.JPG" alt="Logo" height="100">
@@ -49,20 +59,15 @@ nav a {
   <p>
         I am in the process of building this website 
   </p> 
-
-
-
 </body>
 <footer> 
  <!-- Socials -->
- <table>
-    <thead> 
-        <tr>
-            <th> <a target="_blank" href="https://www.linkedin.com/in/connor-tumelty-4296811a3/">Linkedin</a> </th>
-            <th> <a target="_blank" href="https://twitter.com/connor_tumelty">Twitter</a> </th>
-            <th> <a target="_blank" href="https://www.instagram.com/connort117/">Instagram</a> </th>
-        </tr>
-    </thead>
-  </table>
+  <t>
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/connor-tumelty-4296811a3/">Linkedin</a></li>
+        <li><a target="_blank" href="https://twitter.com/connor_tumelty">Twitter</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/connort117/">Instagram</a></li>
+      </ul>
+    </t>
 </footer>
 </html>
