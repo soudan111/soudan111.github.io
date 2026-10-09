@@ -32,6 +32,6 @@ export const hevy = {
   ],
 
   // How far back to look. Hevy returns 10 workouts per request, so 10 pages is
-  // your latest ~100 workouts.
+  // Latest ~100 workouts.
   historyPages: 10,
 };
