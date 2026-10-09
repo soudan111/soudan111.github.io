@@ -14,7 +14,7 @@ export const letterboxd = {
 
   // How many films to show in each row.
   favoritesCount: 8,
-  recentCount: 6,
+  recentCount: 9,
 };
 
 // MANUAL FAVORITES (used when favoritesList is empty, or if that list can't be read).
