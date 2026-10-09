@@ -524,3 +524,157 @@ a.film-link:hover .film-poster {
   color: var(--muted);
   font-size: 0.8rem;
 }
+
+/* ==========================================================================
+   Training (Hevy)
+   ========================================================================== */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 8px 0 32px;
+  list-style: none;
+}
+
+.stat-row li {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.stat-value {
+  display: block;
+  color: var(--forest);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.workout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 12px 0 32px;
+}
+
+.workout {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.workout header {
+  margin-bottom: 10px;
+}
+
+.workout-title {
+  margin: 0;
+  color: var(--forest);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.workout-meta {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.workout ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.workout li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 5px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.workout-best {
+  flex-shrink: 0;
+  color: var(--muted);
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.workout-more {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.lift-note {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.lift-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 12px 0 32px;
+  list-style: none;
+}
+
+.lift {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.lift-name {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lift-value {
+  margin: 2px 0 6px;
+  color: var(--forest);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.lift-value small {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}
+
+.lift svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lift-change {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
