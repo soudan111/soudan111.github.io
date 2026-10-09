@@ -16,5 +16,6 @@ export const nav = [
   { key: "research", label: "Research", href: "research/" },
   { key: "publications", label: "Publications", href: "publications/" },
   { key: "about", label: "About", href: "about/" },
+  { key: "radio", label: "Radio", href: "radio/" },
   { key: "cv", label: "CV", href: "cv/" },
 ];
