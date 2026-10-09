@@ -1,0 +1,111 @@
+---
+import { getHevyData } from "../utils/hevy";
+import { hevy } from "../data/workouts";
+
+const data = await getHevyData();
+
+const W = 160;
+const H = 44;
+const PAD = 4;
+
+function sparkPoints(values: number[]): string[] {
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min || 1;
+  return values.map((v, i) => {
+    const x = PAD + (i / (values.length - 1)) * (W - 2 * PAD);
+    const y = H - PAD - ((v - min) / span) * (H - 2 * PAD);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+}
+
+const signed = (n: number, unit: string) =>
+  n === 0 ? `no change` : `${n > 0 ? "+" : "−"}${Math.abs(n).toLocaleString("en-US")} ${unit}`;
+---
+
+{
+  data && (
+    <section class="page-section training">
+      <p class="eyebrow">In the gym</p>
+      <h2>Training</h2>
+
+      {hevy.showStats && (
+        <ul class="stat-row">
+          {data.stats.map((s) => (
+            <li>
+              <span class="stat-value">{s.value}</span>
+              <span class="stat-label">{s.label}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {hevy.showRecent && data.recent.length > 0 && (
+        <>
+          <h3>Recent sessions</h3>
+          <div class="workout-grid">
+            {data.recent.map((w) => (
+              <article class="workout">
+                <header>
+                  <p class="workout-title">{w.title}</p>
+                  <p class="workout-meta">
+                    {w.date}
+                    {w.duration && ` · ${w.duration}`}
+                  </p>
+                </header>
+                <ul>
+                  {w.exercises.map((e) => (
+                    <li>
+                      <span>{e.name}</span>
+                      <span class="workout-best">
+                        {e.sets} {e.sets === 1 ? "set" : "sets"}
+                        {e.best && ` · ${e.best}`}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                {w.more > 0 && <p class="workout-more">+ {w.more} more</p>}
+              </article>
+            ))}
+          </div>
+        </>
+      )}
+
+      {hevy.showLifts && data.lifts.length > 0 && (
+        <>
+          <h3>Strength progress</h3>
+          <p class="lift-note">Estimated one-rep max per session, from my best working set.</p>
+          <ul class="lift-grid">
+            {data.lifts.map((l) => {
+              const pts = sparkPoints(l.points);
+              const [lx, ly] = pts[pts.length - 1].split(",");
+              return (
+                <li class="lift">
+                  <p class="lift-name">{l.label}</p>
+                  <p class="lift-value">
+                    {l.latest.toLocaleString("en-US")} <small>{data.units}</small>
+                  </p>
+                  <svg
+                    viewBox={`0 0 ${W} ${H}`}
+                    width={W}
+                    height={H}
+                    role="img"
+                    aria-label={`${l.label} estimated one-rep max over time, now ${l.latest} ${data.units}`}
+                  >
+                    <polyline points={pts.join(" ")} fill="none" stroke="var(--forest)" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" />
+                    <circle cx={lx} cy={ly} r="3" fill="var(--clay)" />
+                  </svg>
+                  <p class="lift-change">
+                    {signed(l.change, data.units)} since {l.since}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
+
+      <p class="film-credit">Synced automatically from <a href="https://hevy.com">Hevy</a>.</p>
+    </section>
+  )
+}
