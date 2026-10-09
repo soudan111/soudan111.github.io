@@ -1,0 +1,65 @@
+---
+import FilmPoster from "./FilmPoster.astro";
+import { getFilmShelf } from "../utils/letterboxd";
+import { letterboxd } from "../data/films";
+
+const { favorites, recent } = await getFilmShelf();
+
+const user = letterboxd.username.trim();
+const hasProfile = user !== "" && !user.startsWith("your-");
+const show = favorites.length > 0 || recent.length > 0;
+---
+
+{
+  show && (
+    <section class="page-section films">
+      <p class="eyebrow">On the screen</p>
+      <h2>Movies</h2>
+
+      {favorites.length > 0 && (
+        <>
+          <h3>Favorites</h3>
+          <ul class="film-grid">
+            {favorites.map((film) => (
+              <li class="film">
+                <FilmPoster film={film} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {recent.length > 0 && (
+        <>
+          <h3>Recently watched</h3>
+          <ul class="film-grid">
+            {recent.map((film) => (
+              <li class="film">
+                <FilmPoster film={film} />
+                <p class="film-meta">
+                  {film.rating && (
+                    <span class="film-stars" aria-label={`Rated ${film.rating}`}>
+                      {film.rating}
+                    </span>
+                  )}
+                  {film.rewatch && (
+                    <span class="film-rewatch" title="Rewatch">
+                      {" "}↺
+                    </span>
+                  )}
+                  {film.watched && <span class="film-date">{film.watched}</span>}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {hasProfile && (
+        <p class="film-credit">
+          Updates from my <a href={`https://letterboxd.com/${user}/`}>Letterboxd</a> profile.
+        </p>
+      )}
+    </section>
+  )
+}
