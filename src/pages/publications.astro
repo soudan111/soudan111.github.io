@@ -1,52 +1,67 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site";
+import { getPublications, sectionFor } from "../utils/publications";
+import {
+  extraLinks,
+  hiddenDois,
+  hiddenTitles,
+  manualEntries,
+} from "../data/publications-overrides";
 
-// Each entry: year, title, authors, venue, and optional links.
-// Delete the placeholder entries and add your own. Leave a link's href empty
-// ("") to hide it.
-const sections = [
-  {
-    heading: "Peer-reviewed articles",
-    items: [
-      {
-        year: "2026",
-        title: "Title of your paper",
-        authors: "Your Name, Coauthor A, Coauthor B",
-        venue: "Journal Name, volume(issue), pages",
-        links: [
-          { label: "DOI", href: "" },
-          { label: "PDF", href: "" },
-          { label: "Code", href: "" },
-        ],
-      },
-    ],
-  },
-  {
-    heading: "Preprints",
-    items: [
-      {
-        year: "2026",
-        title: "Title of your preprint",
-        authors: "Your Name, Coauthor A",
-        venue: "bioRxiv",
-        links: [{ label: "Preprint", href: "" }],
-      },
-    ],
-  },
-  {
-    heading: "Presentations",
-    items: [
-      {
-        year: "2026",
-        title: "Title of your talk or poster",
-        authors: "",
-        venue: "Conference or seminar, location",
-        links: [],
-      },
-    ],
-  },
-];
+// Fetched automatically from OpenAlex at build time (see src/utils/publications.ts).
+const { items: fetched } = await getPublications(site.orcidId);
+
+const MAX_AUTHORS = 12;
+
+interface Entry {
+  year: string;
+  sortKey: string;
+  title: string;
+  authors: { name: string; self: boolean }[];
+  venue: string;
+  links: { label: string; href: string }[];
+}
+
+const order = ["Peer-reviewed articles", "Preprints", "Presentations", "Other"] as const;
+const groups: Record<string, Entry[]> = {};
+for (const name of order) groups[name] = [];
+
+for (const p of fetched) {
+  if (p.doi && hiddenDois.includes(p.doi)) continue;
+  if (hiddenTitles.includes(p.title)) continue;
+  groups[sectionFor(p.type)].push({
+    year: p.year,
+    sortKey: p.date || `${p.year}-01-01`,
+    title: p.title,
+    authors: p.authors,
+    venue: p.venue,
+    links: [...p.links, ...(p.doi ? (extraLinks[p.doi] ?? []) : [])],
+  });
+}
+
+for (const m of manualEntries) {
+  groups[m.section].push({
+    year: m.year,
+    sortKey: `${m.year}-12-31`,
+    title: m.title,
+    authors: (m.authors ?? "")
+      .split(",")
+      .map((n) => n.trim())
+      .filter(Boolean)
+      .map((name) => ({ name, self: false })),
+    venue: m.venue,
+    links: m.links ?? [],
+  });
+}
+
+for (const name of order) {
+  groups[name].sort((a, b) => b.sortKey.localeCompare(a.sortKey));
+}
+
+const sections = order
+  .map((heading) => ({ heading, items: groups[heading] }))
+  .filter((s) => s.items.length > 0);
 ---
 
 <BaseLayout
@@ -60,9 +75,18 @@ const sections = [
       <h1 class="display">Papers, preprints &amp; talks.</h1>
       <p class="lead">
         A complete list of published work, with links to papers, data, and code
-        where available.
+        where available. This list updates automatically from
+        <a href={site.orcid}>ORCID</a> and OpenAlex.
       </p>
     </div>
+
+    {
+      sections.length === 0 && (
+        <section class="page-section">
+          <p>No publications found yet. Check back soon.</p>
+        </section>
+      )
+    }
 
     {
       sections.map((s) => (
@@ -74,20 +98,30 @@ const sections = [
                 <span class="entry-date">{item.year}</span>
                 <div>
                   <p class="entry-title">{item.title}</p>
-                  {item.authors && <p class="entry-meta">{item.authors}</p>}
-                  <p class="entry-meta">
-                    <em>{item.venue}</em>
-                  </p>
-                  {item.links.some((l) => l.href) && (
+                  {item.authors.length > 0 && (
+                    <p class="entry-meta">
+                      {item.authors.slice(0, MAX_AUTHORS).map((a, i) => (
+                        <>
+                          {i > 0 && ", "}
+                          {a.self ? <strong>{a.name}</strong> : a.name}
+                        </>
+                      ))}
+                      {item.authors.length > MAX_AUTHORS && ", et al."}
+                    </p>
+                  )}
+                  {item.venue && (
+                    <p class="entry-meta">
+                      <em>{item.venue}</em>
+                    </p>
+                  )}
+                  {item.links.length > 0 && (
                     <p class="entry-links">
-                      {item.links
-                        .filter((l) => l.href)
-                        .map((l, i) => (
-                          <>
-                            {i > 0 && " · "}
-                            <a href={l.href}>{l.label} ↗</a>
-                          </>
-                        ))}
+                      {item.links.map((l, i) => (
+                        <>
+                          {i > 0 && " · "}
+                          <a href={l.href}>{l.label} ↗</a>
+                        </>
+                      ))}
                     </p>
                   )}
                 </div>
