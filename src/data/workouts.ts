@@ -1,9 +1,3 @@
-// Settings for the "Training" section on the About page (data from Hevy).
-//
-// The section only appears when a Hevy API key is available at build time.
-// The key is NEVER stored in this repo. See the README note: add it as a GitHub
-// secret called HEVY_API_KEY (Settings → Secrets and variables → Actions).
-
 export const hevy = {
   // "lb" or "kg"
   units: "lb" as "lb" | "kg",
