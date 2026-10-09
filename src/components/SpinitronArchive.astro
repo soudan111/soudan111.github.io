@@ -1,0 +1,74 @@
+---
+import { radio } from "../data/radio";
+
+// Only ever frame Spinitron itself.
+const isSpinitron = (u: string) => /^https:\/\/spinitron\.com\//.test(u);
+
+const start = isSpinitron(radio.personaUrl) ? radio.personaUrl : "";
+const pinned = radio.pinned.filter((p) => isSpinitron(p.url));
+---
+
+{
+  start && (
+    <section class="archive" data-archive data-home={start}>
+      <div class="archive-bar">
+        <div class="archive-picks" role="group" aria-label="Choose what to view">
+          <button type="button" class="archive-btn" data-src={start} aria-pressed="true">
+            All playlists
+          </button>
+          {pinned.map((p) => (
+            <button type="button" class="archive-btn" data-src={p.url} aria-pressed="false">
+              {p.label}
+            </button>
+          ))}
+        </div>
+        <a class="archive-open" href={start} target="_blank" rel="noopener noreferrer" data-open>
+          Open on Spinitron ↗
+        </a>
+      </div>
+
+      <iframe
+        class="archive-frame"
+        src={start}
+        title={`${radio.showName} playlists on Spinitron`}
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; encrypted-media"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+      >
+      </iframe>
+
+      <noscript>
+        <p>
+          JavaScript is off, so the playlist viewer can't switch episodes.
+          <a href={start}>Open the playlists on Spinitron ↗</a>
+        </p>
+      </noscript>
+
+      <p class="archive-help">
+        If the box above stays blank, your browser or Spinitron is blocking the embed.
+        <a href={start} target="_blank" rel="noopener noreferrer">Open the archive on Spinitron ↗</a>
+      </p>
+    </section>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-archive]").forEach((root) => {
+    const frame = root.querySelector<HTMLIFrameElement>("iframe");
+    const open = root.querySelector<HTMLAnchorElement>("[data-open]");
+    const buttons = root.querySelectorAll<HTMLButtonElement>(".archive-btn");
+    if (!frame) return;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const src = btn.dataset.src ?? "";
+        // Never load anything except Spinitron.
+        if (!/^https:\/\/spinitron\.com\//.test(src)) return;
+        frame.src = src;
+        if (open) open.href = src;
+        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      });
+    });
+  });
+</script>
