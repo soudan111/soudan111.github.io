@@ -1,0 +1,47 @@
+---
+import type { Film } from "../utils/letterboxd";
+import { withBase } from "../utils/url";
+
+interface Props {
+  film: Film;
+}
+
+const { film } = Astro.props;
+
+const label = `${film.title}${film.year ? ` (${film.year})` : ""}`;
+const src = film.poster
+  ? /^https?:\/\//.test(film.poster)
+    ? film.poster
+    : withBase(film.poster)
+  : "";
+
+// A link when we have a URL, otherwise a plain block.
+const Wrapper = film.href ? "a" : "div";
+---
+
+<Wrapper
+  class="film-link"
+  href={film.href || undefined}
+  title={label}
+  target={film.href ? "_blank" : undefined}
+  rel={film.href ? "noopener noreferrer" : undefined}
+>
+  {
+    src ? (
+      <img
+        class="film-poster"
+        src={src}
+        alt={`Poster for ${label}`}
+        width="230"
+        height="345"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      />
+    ) : (
+      <span class="film-poster film-fallback">
+        <span>{film.title}</span>
+        {film.year && <small>{film.year}</small>}
+      </span>
+    )
+  }
+</Wrapper>
