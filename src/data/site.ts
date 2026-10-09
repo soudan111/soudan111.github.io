@@ -2,12 +2,12 @@
 // Edit these and the header, footer, and page titles update everywhere.
 
 export const site = {
-  name: "Your Name",
+  name: "Connor Tumelty",
   role: "Plant biology · Research",
-  email: "you@example.com",
+  email: "cwtumelty@ucdavis.edu,
   // Leave a link empty ("") to hide it from the footer.
-  scholar: "",
-  orcid: "",
+  scholar: "https://scholar.google.com/citations?user=OTj7B40AAAAJ&hl=en",
+  orcid: "https://orcid.org/0000-0003-0584-2760",
   github: "https://github.com/soudan111",
 };
 
