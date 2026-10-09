@@ -22,7 +22,6 @@ export const hevy = {
     { match: "deadlift", label: "Deadlift" },
     { match: "leg press", label: "Leg Press" },
     { match: "triceps pushdown", label: "Tricep Pushdown" },
-    { match: "leg extension", label: "Leg Extension" },
   ],
 
   // How far back to look. Hevy returns 10 workouts per request, so 10 pages is
