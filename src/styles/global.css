@@ -444,3 +444,83 @@ h3 {
     transition: none !important;
   }
 }
+/* ==========================================================================
+   Movies (Letterboxd)
+   ========================================================================== */
+
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 12px 0 32px;
+  list-style: none;
+}
+
+.film-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.film-poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: #E6E2D8;
+  border-radius: 2px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+a.film-link:hover .film-poster {
+  transform: translateY(-2px);
+  border-color: var(--clay);
+}
+
+.film-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  text-align: center;
+  color: var(--forest);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.film-fallback small {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.film-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.film-meta span {
+  display: block;
+}
+
+.film-stars {
+  color: var(--clay);
+  letter-spacing: 0.04em;
+}
+
+.film-rewatch {
+  display: inline !important;
+}
+
+.film-credit {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
