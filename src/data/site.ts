@@ -8,6 +8,7 @@ export const site = {
   // Leave a link empty ("") to hide it from the footer.
   scholar: "https://scholar.google.com/citations?user=OTj7B40AAAAJ&hl=en",
   orcid: "https://orcid.org/0000-0003-0584-2760",
+  orcidId: "0000-0003-0584-2760",
   github: "https://github.com/soudan111",
 };
 
