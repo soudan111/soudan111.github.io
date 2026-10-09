@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import { withBase } from "../utils/url";
+
+const education = [
+  {
+    date: "20XX – Present",
+    title: "PhD, Plant Biology",
+    meta: "University Name · Advisor: Dr. Name",
+  },
+  {
+    date: "20XX – 20XX",
+    title: "B.S., Major",
+    meta: "University Name",
+  },
+];
+
+const teaching = [
+  {
+    date: "20XX",
+    title: "Teaching assistant, Course Name",
+    meta: "University Name",
+  },
+];
+
+const awards = [
+  {
+    date: "20XX",
+    title: "Award or fellowship name",
+    meta: "Granting organization",
+  },
+];
+
+const sections = [
+  { heading: "Education", items: education },
+  { heading: "Teaching", items: teaching },
+  { heading: "Awards & funding", items: awards },
+];
+---
+
+<BaseLayout
+  title={`CV — ${site.name}`}
+  description="Curriculum vitae: education, teaching, and awards."
+  current="cv"
+>
+  <div class="container">
+    <div class="page-header">
+      <p class="eyebrow">Curriculum vitae</p>
+      <h1 class="display">CV highlights.</h1>
+      <p class="lead">
+        A summary of education, teaching, and awards. The full CV, including
+        publications and presentations, is available as a PDF.
+      </p>
+      <div class="actions">
+        <a class="button-link primary" href={withBase("cv.pdf")}>
+          Download CV (PDF) ↓
+        </a>
+      </div>
+    </div>
+
+    {
+      sections.map((s) => (
+        <section class="page-section">
+          <h2>{s.heading}</h2>
+          <ul class="entry-list">
+            {s.items.map((item) => (
+              <li>
+                <span class="entry-date">{item.date}</span>
+                <div>
+                  <p class="entry-title">{item.title}</p>
+                  <p class="entry-meta">{item.meta}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

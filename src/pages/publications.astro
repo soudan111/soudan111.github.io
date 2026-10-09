@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+// Each entry: year, title, authors, venue, and optional links.
+// Delete the placeholder entries and add your own. Leave a link's href empty
+// ("") to hide it.
+const sections = [
+  {
+    heading: "Peer-reviewed articles",
+    items: [
+      {
+        year: "2026",
+        title: "Title of your paper",
+        authors: "Your Name, Coauthor A, Coauthor B",
+        venue: "Journal Name, volume(issue), pages",
+        links: [
+          { label: "DOI", href: "" },
+          { label: "PDF", href: "" },
+          { label: "Code", href: "" },
+        ],
+      },
+    ],
+  },
+  {
+    heading: "Preprints",
+    items: [
+      {
+        year: "2026",
+        title: "Title of your preprint",
+        authors: "Your Name, Coauthor A",
+        venue: "bioRxiv",
+        links: [{ label: "Preprint", href: "" }],
+      },
+    ],
+  },
+  {
+    heading: "Presentations",
+    items: [
+      {
+        year: "2026",
+        title: "Title of your talk or poster",
+        authors: "",
+        venue: "Conference or seminar, location",
+        links: [],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`Publications — ${site.name}`}
+  description="Publications, preprints, and presentations."
+  current="publications"
+>
+  <div class="container">
+    <div class="page-header">
+      <p class="eyebrow">Publications</p>
+      <h1 class="display">Papers, preprints &amp; talks.</h1>
+      <p class="lead">
+        A complete list of published work, with links to papers, data, and code
+        where available.
+      </p>
+    </div>
+
+    {
+      sections.map((s) => (
+        <section class="page-section">
+          <h2>{s.heading}</h2>
+          <ul class="entry-list">
+            {s.items.map((item) => (
+              <li>
+                <span class="entry-date">{item.year}</span>
+                <div>
+                  <p class="entry-title">{item.title}</p>
+                  {item.authors && <p class="entry-meta">{item.authors}</p>}
+                  <p class="entry-meta">
+                    <em>{item.venue}</em>
+                  </p>
+                  {item.links.some((l) => l.href) && (
+                    <p class="entry-links">
+                      {item.links
+                        .filter((l) => l.href)
+                        .map((l, i) => (
+                          <>
+                            {i > 0 && " · "}
+                            <a href={l.href}>{l.label} ↗</a>
+                          </>
+                        ))}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

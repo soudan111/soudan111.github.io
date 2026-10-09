@@ -1,0 +1,17 @@
+---
+import { site } from "../data/site";
+import { withBase } from "../utils/url";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="container site-footer">
+  <span>© {year} {site.name}</span>
+  <span>
+    <a href={`mailto:${site.email}`}>Email</a>
+    {site.scholar && <> · <a href={site.scholar}>Scholar</a></>}
+    {site.orcid && <> · <a href={site.orcid}>ORCID</a></>}
+    · <a href={withBase("cv/")}>CV</a>
+    · <a href={withBase("publications/")}>Publications</a>
+  </span>
+</footer>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-label="Placeholder: project image">
+  <rect width="900" height="540" fill="#A3B39A"/>
+  <g fill="none" stroke="#263F32" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <path d="M450 540V250"/>
+    <path d="M450 250c-40-60-120-90-200-70M450 250c40-60 120-90 200-70"/>
+    <path d="M450 330c-30-40-90-60-150-48M450 330c30-40 90-60 150-48"/>
+    <path d="M450 410c-24-30-70-44-110-36M450 410c24-30 70-44 110-36"/>
+    <path d="M450 250c0-60 10-120 30-170"/>
+  </g>
+  <text x="450" y="510" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#263F32" opacity="0.8" letter-spacing="3">REPLACE WITH A RESEARCH IMAGE</text>
+</svg>

@@ -1,0 +1,32 @@
+---
+import { withBase } from "../utils/url";
+
+interface Props {
+  number: string;
+  title: string;
+  summary: string;
+  image: string;
+  alt: string;
+  href?: string;
+}
+
+const { number, title, summary, image, alt, href = "research/" } = Astro.props;
+---
+
+<article class="project-card">
+  <a href={withBase(href)} tabindex="-1" aria-hidden="true">
+    <img
+      class="project-image"
+      src={withBase(image)}
+      alt={alt}
+      width="900"
+      height="540"
+      loading="lazy"
+    />
+  </a>
+
+  <p class="eyebrow">Project {number}</p>
+  <h3 class="project-title">{title}</h3>
+  <p>{summary}</p>
+  <a href={withBase(href)}>Read about this project ↗</a>
+</article>

@@ -1,0 +1,29 @@
+---
+import { site, nav } from "../data/site";
+import { withBase } from "../utils/url";
+
+interface Props {
+  current?: string;
+}
+
+const { current = "" } = Astro.props;
+---
+
+<header class="container site-header">
+  <a class="brand" href={withBase("/")} aria-label={`${site.name}, home`}>
+    {site.name}
+  </a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    {
+      nav.map((item) => (
+        <a
+          href={withBase(item.href)}
+          aria-current={current === item.key ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-label="Placeholder: personal photo">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6E2D8"/>
+      <stop offset="1" stop-color="#F6F3EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="540" fill="url(#sky)"/>
+  <path d="M0 360l140-110 120 80 150-150 160 170 110-80 220 130v140H0z" fill="#A3B39A"/>
+  <path d="M0 440c200-40 360-20 520 10 140 26 280 20 380-10v100H0z" fill="#263F32"/>
+  <circle cx="720" cy="130" r="36" fill="#B97859" opacity="0.85"/>
+  <text x="450" y="510" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#F6F3EB" opacity="0.8" letter-spacing="3">REPLACE WITH A PERSONAL PHOTO</text>
+</svg>

@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import { withBase } from "../utils/url";
+
+// Add, remove, or reorder projects here.
+const projects = [
+  {
+    number: "01",
+    title: "[First research question]",
+    image: "images/project-01.svg",
+    alt: "Plant material used in a research project",
+    question:
+      "State the biological question in one or two sentences. What do we not yet understand, and why does it matter?",
+    approach:
+      "Describe the approach in plain language: the organism, the techniques, and what a successful result would show.",
+    tags: ["Arabidopsis", "Gene regulation", "Genomics"],
+    links: [{ label: "Paper or preprint", href: "" }],
+  },
+  {
+    number: "02",
+    title: "[Second research question]",
+    image: "images/project-02.svg",
+    alt: "A scientific image from a molecular biology project",
+    question:
+      "Introduce a second project, a technique you use, or a broader question connected to your research.",
+    approach:
+      "Explain how this project connects to the first, and where it is headed.",
+    tags: ["Molecular biology", "Imaging"],
+    links: [{ label: "Code or data", href: "" }],
+  },
+];
+---
+
+<BaseLayout
+  title={`Research — ${site.name}`}
+  description="Research projects in plant molecular biology."
+  current="research"
+>
+  <div class="container">
+    <div class="page-header">
+      <p class="eyebrow">Research</p>
+      <h1 class="display">What I'm investigating.</h1>
+      <p class="lead">
+        A short overview of your research program: the big question, the
+        organisms and methods you work with, and where you hope it leads.
+      </p>
+    </div>
+
+    <section class="page-section">
+      {
+        projects.map((p) => (
+          <article class="research-item">
+            <img
+              class="project-image"
+              src={withBase(p.image)}
+              alt={p.alt}
+              width="900"
+              height="540"
+              loading="lazy"
+            />
+            <div>
+              <p class="eyebrow">Project {p.number}</p>
+              <h2>{p.title}</h2>
+              <h3>The question</h3>
+              <p>{p.question}</p>
+              <h3>The approach</h3>
+              <p>{p.approach}</p>
+              <ul class="tag-list">
+                {p.tags.map((t) => (
+                  <li>{t}</li>
+                ))}
+              </ul>
+              {p.links.some((l) => l.href) && (
+                <p class="entry-links">
+                  {p.links
+                    .filter((l) => l.href)
+                    .map((l, i) => (
+                      <>
+                        {i > 0 && " · "}
+                        <a href={l.href}>{l.label} ↗</a>
+                      </>
+                    ))}
+                </p>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { site } from "../data/site";
+import { withBase } from "../utils/url";
+---
+
+<BaseLayout
+  title={`${site.name} — Plant Biology Research`}
+  description="Plant biology research, publications, and personal interests."
+>
+  <section class="container hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Plant biology · Molecular research</p>
+
+      <h1 class="display">Understanding the molecular lives of plants.</h1>
+
+      <p>
+        I'm a PhD researcher investigating how genes and molecular mechanisms
+        shape plant biology. My work explores [your research question] using
+        [your research approaches].
+      </p>
+
+      <div class="actions">
+        <a class="button-link primary" href={withBase("research/")}>
+          Explore my research ↗
+        </a>
+        <a class="button-link" href={withBase("cv/")}>View my CV</a>
+      </div>
+    </div>
+
+    <img
+      class="hero-image"
+      src={withBase("images/hero-leaf.svg")}
+      alt="A close-up botanical image showing the structure of a leaf"
+      width="900"
+      height="1125"
+      fetchpriority="high"
+    />
+  </section>
+
+  <section class="container section">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="section-title">Research in progress</h2>
+
+    <div class="project-grid">
+      <ProjectCard
+        number="01"
+        title="[First research question]"
+        summary="A brief explanation of the biological problem, why it matters, and what you're investigating."
+        image="images/project-01.svg"
+        alt="Plant material used in a research project"
+      />
+      <ProjectCard
+        number="02"
+        title="[Second research question]"
+        summary="Introduce another project, technique, or broader question connected to your research."
+        image="images/project-02.svg"
+        alt="A scientific image from a molecular biology project"
+      />
+    </div>
+  </section>
+
+  <section class="container section personal-grid">
+    <div>
+      <p class="eyebrow">Away from the bench</p>
+      <h2 class="section-title">Beyond the lab</h2>
+      <p>
+        Outside research, I enjoy [interest one], [interest two], and
+        [interest three]. This is where I share a few things that inspire me
+        beyond my work in plant biology.
+      </p>
+      <a href={withBase("about/")}>A little more about me ↗</a>
+    </div>
+
+    <img
+      class="project-image"
+      src={withBase("images/beyond-lab.svg")}
+      alt="A personal photograph representing an interest outside research"
+      width="900"
+      height="540"
+      loading="lazy"
+    />
+  </section>
+</BaseLayout>

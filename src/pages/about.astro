@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import { withBase } from "../utils/url";
+---
+
+<BaseLayout
+  title={`About — ${site.name}`}
+  description="Academic biography and personal interests."
+  current="about"
+>
+  <div class="container">
+    <div class="page-header">
+      <p class="eyebrow">About</p>
+      <h1 class="display">A little more about me.</h1>
+    </div>
+
+    <section class="page-section about-grid">
+      <div class="reading">
+        <h2>Academic background</h2>
+        <p>
+          Write a short academic biography here: where you are in your PhD,
+          what you study, and what first drew you to plant biology. Two or
+          three paragraphs is plenty.
+        </p>
+        <p>
+          Mention your advisor or lab, your institution, and the questions you
+          hope to answer over the next few years.
+        </p>
+      </div>
+
+      <img
+        class="project-image"
+        src={withBase("images/beyond-lab.svg")}
+        alt="A personal photograph"
+        width="900"
+        height="540"
+        loading="lazy"
+      />
+    </section>
+
+    <section class="page-section">
+      <div class="reading">
+        <h2>Beyond the lab</h2>
+        <p>
+          This is the place for the real you: [interest one], [interest two],
+          and [interest three]. A few specifics (a trail you love, something
+          you're reading, a project at home) make this page memorable.
+        </p>
+        <p>
+          Add two or three candid photographs below by dropping them into
+          <code>public/images/</code> and referencing them here.
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
