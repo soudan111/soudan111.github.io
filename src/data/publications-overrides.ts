@@ -20,7 +20,9 @@ export const extraLinks: Record<string, ExtraLink[]> = {};
 export const hiddenDois: string[] = [];
 
 // Hide a fetched paper that has no DOI, by its exact title.
-export const hiddenTitles: string[] = [];
+export const hiddenTitles: string[] = [
+  "A Review of the Applications and Mechanisms of CRISPR-Cas9 Systems", 
+];
 
 // Anything that won't be found automatically: talks, posters, or a paper
 // that isn't indexed yet. These are always shown.
