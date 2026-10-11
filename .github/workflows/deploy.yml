@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    schedule:
+  schedule:
     - cron: "17 9 * * *"
 
 permissions:
